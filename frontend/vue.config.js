@@ -5,6 +5,13 @@ const contentBase = path.resolve(__dirname);
 const testsDir = './tests';
 
 module.exports = {
+  // Just allows local network access, http://gleason/save-file-converter
+  publicPath: '/save-file-converter/',
+  devServer: {
+    allowedHosts: [
+      'gleason'
+    ]
+  },
   productionSourceMap: process.env.VUE_APP_ENABLE_SOURCE_MAPS === 'true',
   pluginOptions: {
     s3Deploy: {
@@ -62,13 +69,13 @@ module.exports = {
     module: {
       // WASM integration with webpack 5 based on: https://gist.github.com/surma/b2705b6cca29357ebea1c9e6e15684cc
       rules: [
-        { 
+        {
           test: /\.wasm$/,
           type: 'javascript/auto',
           loader: 'file-loader',
           options: {
             name: '[name]-[contenthash].[ext]',
-          }        
+          }
         }
       ]
     }
