@@ -6,7 +6,7 @@ const testsDir = './tests';
 
 module.exports = {
   // Just allows local network access, http://gleason/save-file-converter
-  publicPath: '/save-file-converter/',
+  //publicPath: '/save-file-converter/',
   devServer: {
     allowedHosts: [
       'gleason'
